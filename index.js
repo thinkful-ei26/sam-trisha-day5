@@ -15,8 +15,19 @@ const STORE = [
 
 console.log(STORE);
 
-//A shopping list should be rendered to the page
+//A shopping list should be rendered to the page with all current items in STORE 
 function renderShoppingList(){
+
+//   For each item in STORE, generate a string representing an <li> with:
+// the item name rendered as inner text
+// the item's index in the STORE set as a data attribute on the <li> (more on that in a moment)
+// the item's checked state (true or false) rendered as the presence or absence of a CSS class for indicating checked items (specifically, .shopping-item__checked from index.css)
+// Join together the individual item strings into one long string
+// Insert the <li>s string inside the .js-shopping-list <ul> in the DOM.
+const shoppingListItemsString = '<li>apples</li>';
+
+  // insert that HTML into the DOM
+  $('.js-shopping-list').html(shoppingListItemsString);
   console.log('`renderShoppingList` ran');
 }
 
