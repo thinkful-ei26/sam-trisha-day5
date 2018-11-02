@@ -1,10 +1,10 @@
 'use strict';
 
 const STORE = [
-  {name: "apples", checked: false},
-  {name: "oranges", checked: false},
-  {name: "milk", checked: true}, 
-  {name: "bread", checked: false}
+  {name: 'apples', checked: false},
+  {name: 'oranges', checked: false},
+  {name: 'milk', checked: true}, 
+  {name: 'bread', checked: false}
 ];
 
 // // okay
@@ -16,17 +16,28 @@ const STORE = [
 //console.log(STORE);
 
 // make each individual <li> item
+// we think itemIndex is there for finding the right item when a button is pushed use STORE
 function generateItemElement(item, itemIndex, template) {
   return `
-    <li>${item.name}</li>`;
-}
+  <li class="js-item-index-element" data-item-index="${itemIndex}">
+      <span class="shopping-item js-shopping-item ${item.checked ? 'shopping-item__checked' : ''}">${item.name}</span>
+      <div class="shopping-item-controls">
+        <button class="shopping-item-toggle js-item-toggle">
+            <span class="button-label">check</span>
+        </button>
+        <button class="shopping-item-delete js-item-delete">
+            <span class="button-label">delete</span>
+        </button>
+      </div>
+    </li>
+`;}
 
 function generateShoppingItemsString(shoppingList){
-  console.log("generating shopping list element");
+  console.log('generating shopping list element');
 
   const item = shoppingList.map((item, index) => generateItemElement(item, index));
 
-  return items.join("");
+  return item.join('');
 
 }
 
@@ -34,7 +45,7 @@ function generateShoppingItemsString(shoppingList){
 
 //A shopping list should be rendered to the page with all current items in STORE 
 function renderShoppingList(){
-  console.log('`renderShoppingList` ran');
+  console.log('renderShoppingList ran');
   const shoppingListItemsString = generateShoppingItemsString(STORE);
 
   // insert that HTML into the DOM
@@ -52,17 +63,17 @@ function renderShoppingList(){
 
 //You should be able to add items to the list
 function handleNewItemSubmit() {
-  console.log('`handleNewItemSubmit` ran');
+  console.log('handleNewItemSubmit ran');
 }
 
 // You should be able to check items on the list
 function handleItemCheckedClicked() {
-  console.log('`handleItemCheckedClicked` ran');
+  console.log('handleItemCheckedClicked ran');
 }
 
 // You should be able to delete items from the list
 function handleItemDeleteClicked(){
-  console.log('`handleItemDeleteClicked` ran');
+  console.log('handleItemDeleteClicked ran');
 }
 
 // main() job is to run all other fn
